@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: code-quest-arena
+    env: docker
+    region: oregon
+    plan: free
+    branch: main
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        sync: false

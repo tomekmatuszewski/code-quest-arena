@@ -1,0 +1,80 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - link "CodeQuiz" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e9]
+          - generic [ref=e12]: CodeQuiz
+        - generic [ref=e13]:
+          - link "Home" [ref=e14] [cursor=pointer]:
+            - /url: /
+            - button "Home" [ref=e15]:
+              - img
+              - generic [ref=e16]: Home
+          - link "Play" [ref=e17] [cursor=pointer]:
+            - /url: /play
+            - button "Play" [ref=e18]:
+              - img
+              - generic [ref=e19]: Play
+          - link "Ranks" [ref=e20] [cursor=pointer]:
+            - /url: /leaderboard
+            - button "Ranks" [ref=e21]:
+              - img
+              - generic [ref=e22]: Ranks
+          - generic [ref=e24]:
+            - generic [ref=e25]:
+              - img [ref=e26]
+              - generic [ref=e29]: user_1765232534920@example.com
+            - button "Logout" [ref=e30] [cursor=pointer]:
+              - img
+              - generic [ref=e31]: Logout
+    - generic [ref=e33]:
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - img [ref=e38]
+          - generic [ref=e44]:
+            - paragraph [ref=e45]: Score
+            - paragraph [ref=e46]: "-10"
+        - generic [ref=e47]:
+          - img [ref=e49]
+          - generic [ref=e53]:
+            - paragraph [ref=e54]: Progress
+            - paragraph [ref=e55]: 1/10
+      - generic [ref=e60]:
+        - generic [ref=e62] [cursor=pointer]:
+          - img [ref=e64]
+          - heading "Draw Card" [level=3] [ref=e67]
+          - paragraph [ref=e68]: Click to reveal your question
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - generic [ref=e71]: Python
+            - generic [ref=e72]: easy
+          - generic [ref=e73]:
+            - generic [ref=e74]: What is the correct way to create a function in Python?
+            - code [ref=e77]:
+              - generic [ref=e78]: "def my_function():"
+              - generic [ref=e79]: print('Hello')
+          - generic [ref=e80]:
+            - button "A function myFunc():" [ref=e81] [cursor=pointer]:
+              - generic [ref=e82]: A
+              - generic [ref=e83]: "function myFunc():"
+            - button "B def myFunc():" [ref=e84] [cursor=pointer]:
+              - generic [ref=e85]: B
+              - generic [ref=e86]: "def myFunc():"
+            - button "C create myFunc():" [ref=e87] [cursor=pointer]:
+              - generic [ref=e88]: C
+              - generic [ref=e89]: "create myFunc():"
+            - button "D func myFunc():" [ref=e90] [cursor=pointer]:
+              - generic [ref=e91]: D
+              - generic [ref=e92]: "func myFunc():"
+      - button "Next Question" [ref=e94] [cursor=pointer]:
+        - text: Next Question
+        - img
+```

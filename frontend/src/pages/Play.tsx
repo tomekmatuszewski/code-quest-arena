@@ -24,6 +24,11 @@ const Play = () => {
   const { user } = useAuth();
   const { toast } = useToast();
 
+  // DEBUG MARKER
+  useEffect(() => {
+    console.log("Play component loaded - version 2");
+  }, []);
+
   useEffect(() => {
     startNewGame();
   }, []);
@@ -130,7 +135,8 @@ const Play = () => {
       <Navbar />
 
       <div className="pt-24 pb-8 px-4">
-        <div className="container mx-auto max-w-2xl space-y-6">
+        <div className="container mx-auto max-w-5xl space-y-6">
+          <div className="text-center text-xl font-bold text-red-500">v3.0 FIXED LAYOUT</div>
           <ScoreDisplay
             score={score}
             questionsAnswered={currentIndex + (waitingForNext ? 1 : 0)}

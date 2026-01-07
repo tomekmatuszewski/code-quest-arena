@@ -14,8 +14,7 @@ def get_questions(
     limit: int = 10, 
     language: Optional[str] = None,
     difficulty: Optional[str] = None,
-    db: Session = Depends(database.get_db),
-    current_user: models.User = Depends(auth.get_current_user)
+    db: Session = Depends(database.get_db)
 ):
     query = db.query(models.Question)
     

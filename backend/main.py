@@ -2,13 +2,15 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from routers import auth, questions, leaderboard
 import models, database
+import seed_data
 import os
 # Create tables
 models.Base.metadata.create_all(bind=database.engine)
+# Seed data if empty
+seed_data.seed()
 
 app = FastAPI(title="Code Quest Arena API")
 
-# CORS Setup
 # CORS Setup
 # Allow any localhost/127.0.0.1 origin
 app.add_middleware(
@@ -56,9 +58,7 @@ if os.path.exists("static"):
         # Fallback to index.html for client-side routing
         return FileResponse("static/index.html")
 
-import os
 
-# ... existing code ...
 
 @app.get("/api/health")
 def health_check():

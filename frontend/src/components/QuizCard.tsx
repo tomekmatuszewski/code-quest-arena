@@ -56,10 +56,11 @@ export const QuizCard = ({ question, onAnswer, isFlipped, onFlip }: QuizCardProp
   };
 
   return (
-    <div className="card-flip w-full max-w-xl mx-auto min-h-[500px]">
+    <div className="card-flip w-full max-w-4xl mx-auto">
       <div className={cn("card-flip-inner w-full h-full relative", isFlipped && "flipped")}>
         {/* Card Back (Initial State) */}
         <div className="card-front absolute inset-0 glass rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:box-glow transition-all duration-300 border-2 border-primary/30"
+          style={{ minHeight: '600px' }}
           onClick={onFlip}>
           <div className="text-center space-y-6">
             <div className="w-24 h-24 mx-auto rounded-2xl bg-primary/20 flex items-center justify-center animate-float">
@@ -72,7 +73,7 @@ export const QuizCard = ({ question, onAnswer, isFlipped, onFlip }: QuizCardProp
         </div>
 
         {/* Card Front (Question) */}
-        <div className="card-back absolute inset-0 glass rounded-2xl p-6 flex flex-col border-2 border-primary/30 h-full overflow-y-auto">
+        <div className="card-back relative w-full glass rounded-2xl p-6 flex flex-col border-2 border-primary/30" style={{ minHeight: '600px' }}>
           <div className="flex items-center justify-between mb-4">
             <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-mono">
               {question.language}

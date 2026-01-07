@@ -19,5 +19,8 @@ export default defineConfig(({ mode }) => ({
     environment: 'happy-dom',
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
+    deps: {
+      inline: ['react-syntax-highlighter']
+    }
   },
 }));

@@ -154,6 +154,46 @@ A robust **Continuous Integration and Continuous Deployment (CI/CD)** pipeline i
 2.  **Conditional Deployment**: The application is **only** deployed to production (Render) if **all tests pass** successfully.
 3.  **Deployment Trigger**: If tests pass on the `main` branch, a webhook triggers the Render build process defined in `render.yaml`.
 
+## Running Locally with Docker
+For the best local development experience that mirrors production, use Docker:
+
+### Quick Start
+```bash
+# Use the convenience script
+./rebuild.sh
+```
+
+This script will:
+1. Stop any existing containers
+2. Remove the old image to ensure a fresh build
+3. Build a new Docker image with `--no-cache`
+4. Start the container on port **8001**
+
+### Manual Docker Commands
+If you prefer to run Docker commands manually:
+
+```bash
+# Build the image
+docker build -t code-quest-arena .
+
+# Run the container
+docker run -d -p 8001:8000 code-quest-arena
+
+# View logs
+docker logs -f $(docker ps -q --filter ancestor=code-quest-arena)
+
+# Stop the container
+docker stop $(docker ps -q --filter ancestor=code-quest-arena)
+```
+
+### Access the Application
+Once running, open your browser to:
+- **Application**: http://localhost:8001
+- **API Docs**: http://localhost:8001/docs
+- **Health Check**: http://localhost:8001/api/health
+
+> **Note**: The application uses port **8001** externally (mapped to internal port 8000) to avoid conflicts with other local services.
+
 
 ## Key Functionality
 - **Game Mechanics**: Flip cards to reveal questions. Answer correctly to gain points, incorrectly to lose them.

@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from fastapi.testclient import TestClient
 from main import app
 import pytest
@@ -20,10 +24,10 @@ def get_auth_headers():
     token = response.json()["access_token"]
     return {"Authorization": f"Bearer {token}"}
 
-def test_read_root():
-    response = client.get("/")
+def test_health_check():
+    response = client.get("/api/health")
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to Code Quest Arena API"}
+    assert response.json() == {"status": "ok"}
 
 def test_get_questions():
     headers = get_auth_headers()
